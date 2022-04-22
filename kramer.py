@@ -1,8 +1,7 @@
-# by billythegoat356
+# by Anferomol
 
-# https://github.com/billythegoat356/Kramer
-
-
+# original: https://github.com/billythegoat356/Kramer
+# This Update: https://github.com/Anferomol/KramerDropFiles
 
 from random import choice, randint, shuffle
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
@@ -12,10 +11,8 @@ from os import listdir, mkdir, remove, rmdir, rename, chdir, name
 from shutil import move, copy, rmtree
 from time import sleep
 from binascii import hexlify
+import sys
 
-
-    
-    
 strings = "abcdefghijklmnopqrstuvwxyz0123456789"  # ne pas changer svp
 
 
@@ -105,7 +102,7 @@ def kramer(content: str, key: int) -> str:
     _5_ = fr"""_n7_""",fr"""exit()if _n1_ else'abcdefghijklmnopqrstuvwxyz0123456789'"""
     _6_ = fr"""_n8_""",fr"""lambda _n12_:_n6_(_n1_(_n12_))"""
     _all_ = [_1_, _2_, _3_, _4_, _5_, _6_]
-   
+
     shuffle(_all_)
 
     _vars_content_ = ",".join(s[0] for s in _all_)
@@ -119,73 +116,13 @@ def kramer(content: str, key: int) -> str:
 Kramer(_n1_=False,_n2_=False,_sparkle='''{content}''')""".strip().replace("_n1_",n_1.removeprefix("self.")).replace("_n2_",n_2.removeprefix("self.")).replace("_n3_",n_3.removeprefix("self.")).replace("_n4_",n_4.removeprefix("self.")).replace("_n5_",n_5).replace("_n6_",n_6).replace("_n7_",n_7).replace("_n8_",n_8).replace("_n9_",n_9.removeprefix("self.")).replace("_n10_",n_10.removeprefix("self.")).replace("_n12_",n_12.removeprefix("self."))
     return _final_content_
 
+def main(arg):
 
-
-System.Clear()
-System.Title("Kramer")
-System.Size(140, 45)
-
-
-text = '''
-<█>         <█>    
-<█>      <█>      <█><█><█><█>         <█><█><█>                        <█><█><█><█>
-<█>   <█>         <█>         <█>   <█>         <█>      <█>   <█>      <█>            <█><█><█>
-<█><█>            <█>         <█>   <█>         <█>   <█>   <█>   <█>   <█>            <█>      <█>
-<█><█>            <█>       <█>     <█><█><█><█><█>   <█>         <█>   <█>            <█>      <█>
-<█>   <█>         <█><█><█>         <█>         <█>   <█>         <█>   <█><█><█>      <█><█><█>
-<█>      <█>      <█>      <█>      <█>         <█>   <█>         <█>   <█>            <█>    <█> 
-<█>         <█>   <█>         <█>   <█>         <█>   <█>         <█>   <█>            <█>       <█>
-<█>               <█>               <█>               <█>               <█>            <█>          <█>
-<█>               <█>                                                   <█><█><█><█>   <█>
-'''[1:]
-
-
-banner = r"""
-                        xXXXXXXXXXXx
-                      xX            Xx
-                     X                X
-                    X      XxXXxX      X
-                   X        x  x       X
-                   X         XX         X
-          XX       X  /~~\        /~~\  X       XX
-        XX  X      X |  o  \    /  o  | X      X  XX
-      XX     X     X  \____/    \____/  X     X     XX
- XXXXX     XX      \         /\        ,/      XX     XXXXX
-X        XX%;;@      \      /  \     ,/      @%%;XX        X
-X       X  @%%;;@     X              X     @%%;;@  X       X
-X      X     @%%;;@   X  ;  ;  ;  ;  X   @%%;;@     X      X
- X    X        @%%;;@                  @%%;;@        X    X
-  X   X          @%%;;@              @%%;;@          X   X
-   X  X            @%%;;@          @%%;;@            X  X
-    XX X             @%%;;@      @%%;;@             X XX
-      XXX              @%%;;@  @%%;;@              XXX
-                         @%%;;%%;;@
-                           @%%;;@
-                         @%%;;@..@@
-                          @@@  @@@
-"""[1:]
-
-
-
-
-
-Anime.Fade(Center.Center(banner), Colors.red_to_yellow, Colorate.Vertical, enter=True)
-
-def main():
-    System.Clear()
-
-    print("\n"*2)
-    print(Colorate.Diagonal(Colors.red_to_yellow, Center.XCenter(text)))
-    print("\n"*5)
-
-
-    _file = Write.Input("Drag your Python file -> ", Colors.red_to_yellow, interval=0.005)
-
-
+    _file = arg
 
     if not _file.strip() or not isfile(_file):
         Colorate.Error("This file does not exist!")
-        return
+        return input('Press Enter to continue...')
 
     if '\\' in _file:
         file = _file.split('\\')[-1]
@@ -200,7 +137,6 @@ def main():
     with open(file, 'w', encoding='utf-8', errors='ignore') as f:
         f.write(content)
 
-    # print()
     # key = Write.Input("Enter your encryption key (3 - 1000000) -> ", Colors.red_to_yellow, interval=0.005)
     key = ran_int(max=1000000)
 
@@ -214,27 +150,14 @@ def main():
         Colorate.Error("Invalid key!")
         return
 
-
-    file = file.removesuffix(".py") + "-obf.py" # hello hideaki
+    if 'pyw' in file:
+        file = file.removesuffix(".pyw") + "-obf.py"
+    else:
+        file = file.removesuffix(".py") + "-obf.py"
 
     content = kramer(content=content, key=key)
     with open(file, 'w', encoding='utf-8') as f:
         f.write(content)
-
-    print('\n')
-
-    print(Colorate.Diagonal(Colors.red_to_yellow, f"""Crypting with Kyrie Eleison...
-Using key {key}...
-Separating lines and spaces...
-Encoding in ASCII...
-Generating random variables names...
-Generating two random numbers...
-Creating the vars...
-Shuffling the vars...
-Adding the vars...
-Making the final content..."""))
-
-    print()
 
     compile(file)
 
@@ -264,18 +187,10 @@ Making the final content..."""))
 
     rename(_file, file)
 
-
-    print(Colorate.Diagonal(Colors.red_to_yellow, """Creating PYC file...
-Moving the PYC file...
-Deleting '__pycache__' folder...
-Renaming PYC file..."""))
-
-    print('\n')
-
-    Write.Input("Built!", Colors.red_to_yellow, interval=0.005)
-    return exit()
-
 if __name__ == '__main__':
-    while True:
-        main()
-
+    c = 0
+    for file in sys.argv:
+        if c == 0:
+            c += 1
+            continue
+        main(file)
