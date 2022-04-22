@@ -1,8 +1,13 @@
------
+<h2 align="center">Now you can drag your Files</h2>
+<p>With this version you can drag the files you want to obfuscate to this file: <strong>'Kramer.py'</strong> and they will be automatically obfuscate..</p><br>
 
 <p align="center">
-<img src="https://repository-images.githubusercontent.com/416417012/341bc39d-cabd-4bff-8702-d84b1b8cbe0e", width="500", height="500">
+  <img src="https://user-images.githubusercontent.com/87772987/164788742-6051a17f-d0d6-40a4-bd55-65ebb624e889.png", width="400", height="400">
+  <img src="https://user-images.githubusercontent.com/87772987/164788776-4847e6e4-482a-4701-a182-ce7196350128.png", width="338", height="190">
 </p>
+
+<p>PD: Also detects the extension 'pyw' :P
+<p>I hope you like it 👻</p>
 
 -----
 
