@@ -151,7 +151,7 @@ def main(arg):
         return
 
     if 'pyw' in file:
-        file = file.removesuffix(".pyw") + "-obf.py"
+        file = file.removesuffix(".pyw") + "-obf.pyw"
     else:
         file = file.removesuffix(".py") + "-obf.py"
 
